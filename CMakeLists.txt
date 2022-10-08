@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 project(leetcode_solver)
 
 set(CMAKE_CXX_STANDARD 14)
+add_compile_definitions(PROBLEM_NUM=${PROBLEM_NUM})
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/solves/config.h.in"

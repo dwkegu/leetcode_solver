@@ -1,7 +1,7 @@
 #pragma once
+#include <memory>
+#include "problems.h"
 
-#define PROBLEM_NUM 2424
-
-#define GEN_HEAD(x) p##x.h
-
-#define TARGET_HEAD "p"#PROBLEM_NUM".h"
+// #define PROBLEM_NUM 2424
+#define _GET_SOLVER(x) std::make_shared<P##x>()
+#define GET_SOLVER(x) _GET_SOLVER(x)
