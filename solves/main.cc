@@ -31,6 +31,8 @@ SOFTWARE.
 
 int main() {
     auto solver = GET_SOLVER(PROBLEM_NUM);
-    solver->solve();
+    if (solver->solve_example() < 0) {
+        std::cout << "solve failed\n";
+    }
     return 0;
 }

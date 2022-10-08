@@ -23,11 +23,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #pragma once
-// #include <rapidjson/document.h>
+#include <rapidjson/document.h>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <chrono>
 
 class Solver {
     public:
         Solver() {}
         virtual ~Solver() {}
-        virtual void solve()=0;
+        void solve_ts() {
+            auto start = std::chrono::system_clock::now();
+            std::string result = solve();
+            auto end = std::chrono::system_clock::now();
+            auto ts = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            std::cout << "time cost : " << ts.count() << " us" << std::endl;
+            std::cout << result << std::endl;
+        }
+        virtual std::string solve()=0;
+        virtual int solve_example()=0;
+        virtual std::string get_example_filename()=0;
+        int read_doc() {
+            std::stringstream ss;
+            std::ifstream in;
+            in.open(get_example_filename(), std::ifstream::in);
+            ss << in.rdbuf();
+            in.close();
+            if (document.Parse(ss.str().c_str()).HasParseError()) {
+                std::cout << "document parse failed\n";
+                return -1;
+            }
+            return 0;
+        }
+    
+    public:
+        rapidjson::Document document;
 };
