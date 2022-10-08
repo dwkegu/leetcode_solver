@@ -26,6 +26,19 @@ SOFTWARE.
 #include "base.h"
 #include <vector>
 
+class P1053: public Solver {
+    public:
+        P1053() {}
+        ~P1053() override {}
+        std::string solve() override;
+        std::string get_example_filename() {
+            return "examples/p1053.json";
+        }
+        int solve_example() override;
+    public:
+        std::vector<int> array;
+};
+
 class P2424: public Solver {
 
     public:
