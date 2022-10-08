@@ -5,4 +5,4 @@ CMakeCache.txt
 main
 3rd_libs/
 solves/config.h
-MakeFile
+Makefile
