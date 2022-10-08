@@ -1,7 +1,7 @@
 # 开发指北
 * 环境要求：cmake 3.16+，c/c++ 编译器（gcc,llvm）
 * 运行调试:problem_num为leetcode 题号
-    ```
+    ```SHELL
     >./build ${problem_num}
     ```
 
