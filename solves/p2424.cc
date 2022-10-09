@@ -22,7 +22,7 @@ std::string P2424::solve() {
         int bit_num = video % 8;
         array[idx] |= (1 << bit_num);
         if (video == ltsp) {
-            while (lower_bound < array_size && (array[lower_bound] >> (ltsp % 8)) & 0x1 == 0x1) {
+            while ((lower_bound < array_size && (array[lower_bound] >> (ltsp % 8)) & 0x1) == 0x1) {
                 ltsp ++;
                 lower_bound = ltsp / 8;
             } 
