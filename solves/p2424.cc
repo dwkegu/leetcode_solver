@@ -33,10 +33,8 @@ std::string P2424::solve() {
 }
 
 int P2424::solve_example() {
-    read_doc();
-    if (!document.IsArray()) {
-        std::cout << "document is not array\n";
-        return -1;
+    if (read_doc()) {
+        return 1;
     }
     for(rapidjson::SizeType i = 0; i < document.Size(); i++) {
         auto& item = document[i];
@@ -52,4 +50,5 @@ int P2424::solve_example() {
         }
         solve_ts();
     }
+    return 0;
 }

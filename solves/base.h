@@ -28,6 +28,7 @@ SOFTWARE.
 #include <sstream>
 #include <iostream>
 #include <chrono>
+#include "config.h"
 
 class Solver {
     public:
@@ -38,21 +39,28 @@ class Solver {
             std::string result = solve();
             auto end = std::chrono::system_clock::now();
             auto ts = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-            std::cout << "time cost : " << ts.count() << " us" << std::endl;
-            std::cout << result << std::endl;
+            auto time = ts.count();
+            std::cout << result;
+            std::cout << "time cost : " << time << " us\n\n";
+            
         }
         virtual std::string solve()=0;
         virtual int solve_example()=0;
-        virtual std::string get_example_filename()=0;
         int read_doc() {
             std::stringstream ss;
             std::ifstream in;
-            in.open(get_example_filename(), std::ifstream::in);
+            std::string filename = GET_EXAMPLE_FILENAME(PROBLEM_NUM);
+            std::cout << "example filename : " << filename << "\n";
+            in.open(filename, std::ifstream::in);
             ss << in.rdbuf();
             in.close();
             if (document.Parse(ss.str().c_str()).HasParseError()) {
                 std::cout << "document parse failed\n";
-                return -1;
+                return 1;
+            }
+            if (!document.IsArray()) {
+                std::cout << "document is not array\n";
+                return 1;
             }
             return 0;
         }
