@@ -20,7 +20,6 @@ std::string P1883::solve() {
             }
             if (m1[dist.size()] <= target_length) {
                 ss << "skip 0 with hour " << std::to_string(m1[dist.size()]) << "/" << speed << "\n";
-                ss << std::to_string(m1[dist.size()]) << ", " << std::to_string(target_length) << "\n";
                 break;
             }
             continue;
