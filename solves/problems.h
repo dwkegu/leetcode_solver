@@ -47,6 +47,19 @@ class P1053: public Solver {
         std::vector<int> array;
 };
 
+class P1883: public Solver {
+    public:
+        P1883() {}
+        ~P1883() {}
+        std::string solve() override;
+        int solve_example() override;
+    
+    public:
+        std::vector<int> dist;
+        int speed;
+        int hour;
+};
+
 class P2424: public Solver {
 
     public:
