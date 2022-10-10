@@ -1,4 +1,4 @@
-#include "problems.h"
+#include "../problems.h"
 
 std::string P1883::solve() {
     std::stringstream ss;

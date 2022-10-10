@@ -1,4 +1,4 @@
-#include "problems.h"
+#include "../problems.h"
 #include <iostream>
 
 /** 
