@@ -37,6 +37,16 @@ class P367: public Solver {
         int num;
 };
 
+class P799: public Solver {
+    public:
+        std::string solve() override;
+        int solve_example() override;
+    private:
+        int level;
+        int idx;
+        double poured;
+};
+
 class P1053: public Solver {
     public:
         P1053() {}
