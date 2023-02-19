@@ -96,3 +96,15 @@ class P2424: public Solver {
 
 
 };
+
+class P2070: public Solver {
+    public:
+        P2070() {}
+        ~P2070() override {}
+        std::string solve() override;
+        int solve_example() override;
+
+    public:
+        std::vector<std::vector<int>> items;
+        std::vector<int> queries;
+};
