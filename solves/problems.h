@@ -108,3 +108,21 @@ class P2070: public Solver {
         std::vector<std::vector<int>> items;
         std::vector<int> queries;
 };
+
+class P1000001: public Solver {
+    public:
+        P1000001() {}
+        ~P1000001() override {}
+        std::string solve() override;
+        int solve_example() override;
+        std::string input;
+};
+
+class P1000003: public Solver {
+    public:
+        P1000003() {}
+        ~P1000003() override {}
+        std::string solve() override;
+        int solve_example() override;
+        std::string s1, s2;
+};
